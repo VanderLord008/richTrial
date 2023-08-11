@@ -91,6 +91,10 @@ const Login = (props) => {
             Login
           </button>
         </div>
+        <div className={styles.written}>
+          new to my app?
+          <span onClick={() => props.change()}> Register</span>
+        </div>
       </div>
     </div>
   );
