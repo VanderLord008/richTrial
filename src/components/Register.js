@@ -83,9 +83,9 @@ const Register = (props) => {
           </div>
         </form>
         <div className={styles.written}>
-          Already have an account? <span>Login</span>
+          Already have an account?{" "}
+          <span onClick={() => props.change()}>Login</span>
         </div>
-        <button onClick={() => props.change()}>login</button>
       </div>
     </div>
   );
