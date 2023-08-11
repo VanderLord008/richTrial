@@ -1,0 +1,138 @@
+/* .container {
+  background-color: lightblue;
+  width: 80%;
+  margin-left: 10%;
+  height: 5rem;
+} */
+.mySubs {
+  width: 100%;
+  margin: auto;
+  padding: 5px;
+  font-size: large;
+  text-align: center;
+  text-decoration: none;
+}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.container1 {
+  margin: auto 0;
+  align-items: center;
+  text-align: center;
+}
+.heading {
+  font-size: x-large;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+}
+.planForm {
+  /* border: 2px solid yellow; */
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  height: 30rem;
+}
+/* .switch{
+    position:relative;
+    width: 10px;
+    height: 60px;
+    margin: 0 10px;
+}
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 350px;
+    left: 350px;
+    right: 350px;
+    bottom: 350px;
+    background-color: blue;
+    transition: .4s;
+    border-radius: 34px;
+}
+.switch input {display: none}
+.slider :before{
+    position: absolute;
+    content: "";
+    height: 50px;
+    width: 50px;
+    bottom: 5px;
+    background-color: white;
+} */
+.planPage {
+  /* border: 2px solid red; */
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  height: 30rem;
+}
+.col1 {
+  /* border: 2px solid green; */
+  width: 20%;
+}
+.radioBtn {
+  height: 30%;
+  /* border: 2px solid green; */
+}
+.col2 {
+  /* border: 2px solid pink; */
+  display: flex;
+  padding: 0px 2rem;
+  width: 80%;
+  justify-content: space-around;
+}
+.mobile,
+.basic,
+.standard,
+.premium {
+  /* border: 2px solid black; */
+}
+.mobile button,
+.basic button,
+.standard button,
+.premium button {
+  padding: 3.8rem;
+  /* border: 2px solid cyan; */
+  cursor: pointer;
+  background-color: rgb(60, 100, 136);
+  color: white;
+  font-size: medium;
+  border: none;
+}
+
+.mobile button {
+  background-color: red;
+}
+.contain {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+}
+.text2 {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+}
+.text22 {
+  color: red;
+}
+.text3 {
+  position: relative;
+  /* border: 2px solid red; */
+  margin: 1rem;
+}
+.devices {
+  /* border: 2px solid green; */
+}
+.btn1 {
+  margin: 1.5rem;
+}
+.button1 {
+  width: 25%;
+  padding: 1rem 0;
+  border: none;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+}

@@ -1,0 +1,49 @@
+.cardContainer {
+  background-color: rgb(162, 162, 207);
+  height: 10rem;
+  border-radius: 5px;
+  width: 40%;
+  padding-top: 2rem;
+  margin: auto;
+  margin-bottom: 10%;
+}
+.cardContainer .heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.cardContainer .heading .info {
+  display: flex;
+}
+.info p {
+  margin-left: 5px;
+  background-color: lightblue;
+  color: blue;
+  border-radius: 5%;
+  padding: 2px;
+}
+.heading button {
+  border: 2px solid lightblue;
+  padding: 0.1rem;
+  background: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.cardContainer .price {
+  font-size: larger;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+
+.choosePlan button {
+  border: 2px solid lightblue;
+  padding: 0.3rem;
+  background: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.cardContainer .description {
+  margin-top: 10px;
+}
