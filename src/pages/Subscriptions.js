@@ -10,7 +10,7 @@ const Subscriptions = () => {
   const fetchSubs = async (req, res) => {
     const allSubs = await axios({
       method: "get",
-      url: "http://localhost:5000/subscriptions",
+      url: "https://richbackend.onrender.com/subscriptions",
       params: {
         email: email,
       },
