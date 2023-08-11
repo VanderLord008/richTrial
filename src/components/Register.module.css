@@ -3,103 +3,87 @@
   padding: 0;
 }
 .card {
-  /* border: 2px solid red; */
-  width: 25%;
-  margin: auto;
-  height: 30rem;
+  width: 25rem;
+  height: 28rem;
   text-align: center;
-  position: relative;
-  margin-top: 6rem;
   background-color: white;
   border-radius: 15px;
-  z-index: 2;
+  display: flex;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.container {
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 18rem;
+.card .container {
+  width: 100%;
+  box-sizing: border-box;
 }
 .heading {
-  /* border: 2px solid black; */
   margin: 1rem 0rem;
   padding: 0.5rem;
-  font-size: medium;
-  font-weight: 500;
+  font-size: larger;
+  font-weight: bold;
+  word-spacing: 5px;
+}
+.ele1 p {
+  font-size: large;
+  margin: 0.5rem 0rem;
+  text-align: left;
+  margin-left: 15%;
 }
 .ele1 {
-  font-size: small;
-  /* border: 2px solid blue; */
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  text-align: left;
+  box-sizing: border-box;
 }
+
 .ele1 input {
-  width: 100%;
+  width: 70%;
   border: 1px solid grey;
-  margin-top: 0.4rem;
   padding: 0.5rem;
   height: 2rem;
   border-radius: 5px;
+}
+.ele2 p {
+  font-size: large;
+  margin: 0.5rem 0rem;
+  text-align: left;
+  margin-left: 15%;
 }
 .ele2 {
-  font-size: small;
-  /* border: 2px solid blue; */
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  text-align: left;
+  box-sizing: border-box;
 }
+
 .ele2 input {
-  width: 100%;
+  width: 70%;
   border: 1px solid grey;
-  margin-top: 0.4rem;
   padding: 0.5rem;
   height: 2rem;
   border-radius: 5px;
+}
+.ele3 p {
+  font-size: large;
+  margin: 0.5rem 0rem;
+  text-align: left;
+  margin-left: 15%;
 }
 .ele3 {
-  font-size: small;
-  /* border: 2px solid blue; */
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  text-align: left;
+  box-sizing: border-box;
 }
+
 .ele3 input {
-  width: 100%;
+  width: 70%;
   border: 1px solid grey;
-  margin-top: 0.4rem;
   padding: 0.5rem;
   height: 2rem;
   border-radius: 5px;
 }
-.ele4 {
-  /* border: 2px solid pink; */
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  text-align: left;
-}
-.ele4 form {
-  display: flex;
-  align-items: center;
-}
-.ele4 form label {
-  margin-left: 0.3rem;
-  font-size: small;
-}
+
 .btn button {
-  width: 100%;
-  padding: 0.7rem 0;
+  width: 74%;
+  padding: 0.9rem;
   background-color: rgb(0, 0, 160);
   border-radius: 5px;
   color: white;
   border: none;
+  margin: 0.9rem 0rem;
 }
 .btn button:hover {
-  width: 100%;
-  padding: 0.7rem 0;
   background-color: rgb(2, 2, 133);
   border-radius: 5px;
   color: white;
@@ -110,8 +94,7 @@
 }
 
 .written {
-  /* border: 2px solid rgb(5, 3, 102); */
-  margin: 1rem 0rem;
+  margin: 0.5rem 0rem;
   font-size: smaller;
 }
 .written span {
