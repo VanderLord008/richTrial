@@ -8,6 +8,7 @@ import Subscriptions from "./Subscriptions";
 
 const Plans = () => {
   const [plans, setPlans] = useState([]);
+  const [selectedPlan, setSelectedPlan] = useState("Mobile");
   const email = useSelector((state) => state.user.userEmail);
   const fetchPlans = async (req, res) => {
     const allPlans = await getPlans();
@@ -27,8 +28,20 @@ const Plans = () => {
     window.location.href = response.url;
   };
 
+  const planSelector = () => {
+    if (selectedPlan === "Mobile") {
+      purchaseHandler(plans[3]);
+    } else if (selectedPlan === "Basic") {
+      purchaseHandler(plans[2]);
+    } else if (selectedPlan === "Standard") {
+      purchaseHandler(plans[1]);
+    } else if (selectedPlan === "Premium") {
+      purchaseHandler(plans[0]);
+    }
+  };
+
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.mySubs}>
         <Link to={"/subscriptions"}>My subscriptions</Link>
       </div>
@@ -68,65 +81,237 @@ const Plans = () => {
               </div>
               <div className={styles.col2}>
                 <div className={styles.mobile}>
-                  <div className={styles.btn}>
-                    {" "}
-                    <button>Mobile</button>
+                  <div
+                    className={`${styles.btn} ${
+                      selectedPlan === "Mobile" ? styles.active : ""
+                    } `}
+                  >
+                    <button onClick={() => setSelectedPlan("Mobile")}>
+                      Mobile
+                    </button>
                   </div>
-                  <div className={`${styles.text2} ${styles.text22}`}>1000</div>
-                  <div className={`${styles.text2} ${styles.text22}`}>Good</div>
-                  <div className={`${styles.text2} ${styles.text22}`}>480p</div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Mobile" ? styles.active : ""
+                    }`}
+                  >
+                    <p>Rs 1000</p>
+                  </div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Mobile" ? styles.active : ""
+                    }`}
+                  >
+                    <p>Good</p>
+                  </div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Mobile" ? styles.active : ""
+                    }`}
+                  >
+                    <p>480p</p>
+                  </div>
                   <div className={styles.devices}>
-                    <div className={`${styles.text3} ${styles.text22}`}>
-                      Phone
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Mobile" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Phone</p>
                     </div>
-                    <div className={`${styles.text3} ${styles.text22}`}>
-                      Tablet
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Mobile" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Tablet</p>
                     </div>
                   </div>
                 </div>
                 <div className={styles.basic}>
-                  <div className={styles.btn}>
-                    {" "}
-                    <button>Basic</button>
+                  <div
+                    className={`${styles.btn} ${
+                      selectedPlan === "Basic" ? styles.active : ""
+                    }`}
+                  >
+                    <button onClick={() => setSelectedPlan("Basic")}>
+                      <p>Basic</p>
+                    </button>
                   </div>
-                  <div className={`${styles.text2}`}>2000</div>
-                  <div className={`${styles.text2}`}>Good</div>
-                  <div className={`${styles.text2}`}>480p</div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Basic" ? styles.active : ""
+                    }`}
+                  >
+                    <p>Rs 2000</p>
+                  </div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Basic" ? styles.active : ""
+                    }`}
+                  >
+                    <p>Good</p>
+                  </div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Basic" ? styles.active : ""
+                    }`}
+                  >
+                    <p>480p</p>
+                  </div>
                   <div className={styles.devices}>
-                    <div className={`${styles.text3}`}>Phone</div>
-                    <div className={`${styles.text3}`}>Tablet</div>
-                    <div className={`${styles.text3}`}>Computer</div>
-                    <div className={`${styles.text3}`}>TV</div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Basic" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Phone</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Basic" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Tablet</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Basic" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Computer</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Basic" ? styles.active : ""
+                      }`}
+                    >
+                      <p>TV</p>
+                    </div>
                   </div>
                 </div>
                 <div className={styles.standard}>
-                  <div className={styles.btn}>
-                    {" "}
-                    <button>Standard</button>
+                  <div
+                    className={`${styles.btn} ${
+                      selectedPlan === "Standard" ? styles.active : ""
+                    }`}
+                  >
+                    <button onClick={() => setSelectedPlan("Standard")}>
+                      Standard
+                    </button>
                   </div>
-                  <div className={`${styles.text2}`}>5000</div>
-                  <div className={`${styles.text2}`}>Better</div>
-                  <div className={`${styles.text2}`}>1080p</div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Standard" ? styles.active : ""
+                    }`}
+                  >
+                    <p>5000</p>
+                  </div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Standard" ? styles.active : ""
+                    }`}
+                  >
+                    <p>Better</p>
+                  </div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Standard" ? styles.active : ""
+                    }`}
+                  >
+                    <p>1080p</p>
+                  </div>
                   <div className={styles.devices}>
-                    <div className={`${styles.text3}`}>Phone</div>
-                    <div className={`${styles.text3}`}>Tablet</div>
-                    <div className={`${styles.text3}`}>Computer</div>
-                    <div className={`${styles.text3}`}>TV</div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Standard" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Phone</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Standard" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Tablet</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Standard" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Computer</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Standard" ? styles.active : ""
+                      }`}
+                    >
+                      <p>TV</p>
+                    </div>
                   </div>
                 </div>
                 <div className={styles.premium}>
-                  <div className={styles.btn}>
-                    {" "}
-                    <button>Premium</button>
+                  <div
+                    className={`${styles.btn} ${
+                      selectedPlan === "Premium" ? styles.active : ""
+                    }`}
+                  >
+                    <button onClick={() => setSelectedPlan("Premium")}>
+                      Premium
+                    </button>
                   </div>
-                  <div className={`${styles.text2}`}>7000</div>
-                  <div className={`${styles.text2}`}>Best</div>
-                  <div className={`${styles.text2}`}>4K + HDR</div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Premium" ? styles.active : ""
+                    }`}
+                  >
+                    <p>7000</p>
+                  </div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Premium" ? styles.active : ""
+                    }`}
+                  >
+                    <p>Best</p>
+                  </div>
+                  <div
+                    className={`${styles.text2} ${
+                      selectedPlan === "Premium" ? styles.active : ""
+                    }`}
+                  >
+                    <p>4K + HDR</p>
+                  </div>
                   <div className={styles.devices}>
-                    <div className={`${styles.text3}`}>Phone</div>
-                    <div className={`${styles.text3}`}>Tablet</div>
-                    <div className={`${styles.text3}`}>Computer</div>
-                    <div className={`${styles.text3}`}>TV</div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Premium" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Phone</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Premium" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Tablet</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Premium" ? styles.active : ""
+                      }`}
+                    >
+                      <p>Computer</p>
+                    </div>
+                    <div
+                      className={`${styles.text3} ${
+                        selectedPlan === "Premium" ? styles.active : ""
+                      }`}
+                    >
+                      <p>TV</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -134,10 +319,7 @@ const Plans = () => {
           </>
         </div>
         <div className={styles.btn1}>
-          <button
-            className={styles.button1}
-            onClick={() => purchaseHandler(plans[3])}
-          >
+          <button className={styles.button1} onClick={() => planSelector()}>
             Next
           </button>
         </div>
