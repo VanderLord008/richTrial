@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiURL = "http://localhost:5000";
+const apiURL = "https://richbackend.onrender.com";
 
 export const createUser = (data) => axios.post(apiURL + "/signup", data);
 export const loginUser = (data) => axios.post(apiURL + "/login", data);
