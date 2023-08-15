@@ -104,3 +104,6 @@
   color: rgb(0, 0, 141);
   cursor: pointer;
 }
+.errorText {
+  color: red;
+}
