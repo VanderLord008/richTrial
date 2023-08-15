@@ -9,6 +9,7 @@ import Subscriptions from "./Subscriptions";
 const Plans = () => {
   const [plans, setPlans] = useState([]);
   const [selectedPlan, setSelectedPlan] = useState("Mobile");
+  const [loading, setLoading] = useState(false);
   const email = useSelector((state) => state.user.userEmail);
   const fetchPlans = async (req, res) => {
     const allPlans = await getPlans();
@@ -21,6 +22,7 @@ const Plans = () => {
   }, []);
 
   const purchaseHandler = async (data) => {
+    setLoading(true);
     console.log(data);
     data.email = email;
     const { data: response } = await createPurchaseSession(data);
@@ -135,7 +137,7 @@ const Plans = () => {
                     }`}
                   >
                     <button onClick={() => setSelectedPlan("Basic")}>
-                      <p>Basic</p>
+                      Basic
                     </button>
                   </div>
                   <div
@@ -320,7 +322,7 @@ const Plans = () => {
         </div>
         <div className={styles.btn1}>
           <button className={styles.button1} onClick={() => planSelector()}>
-            Next
+            {loading ? "processing..." : "Next"}
           </button>
         </div>
       </div>
