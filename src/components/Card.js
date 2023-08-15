@@ -35,14 +35,23 @@ const Card = (props) => {
           <p>{props.data.plan.amount / 100}/yr</p>
         </div>
         <div className={styles.choosePlan}>
-          <button onClick={clickHandler}>Choose Plan</button>
+          <button onClick={clickHandler}>
+            <p>Choose Plan</p>
+          </button>
         </div>
         <div className={styles.description}>
           {props.data.status !== "canceled" && (
-            <p>your subscription will end soon</p>
+            <p>{`your subscription has started on  ${new Date(
+              props.data.current_period_start * 1000
+            ).toDateString()} and will auto renew on ${new Date(
+              props.data.current_period_end * 1000
+            ).toDateString()}`}</p>
           )}
           {props.data.status === "canceled" && (
-            <p>your subscription was cancelled</p>
+            <p>{`your subscription was cancelled and you will lose access on
+              ${new Date(
+                props.data.current_period_end * 1000
+              ).toDateString()}`}</p>
           )}
         </div>
       </div>
