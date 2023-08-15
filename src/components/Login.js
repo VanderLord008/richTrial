@@ -8,11 +8,14 @@ import { setCustomerId, setUser, setUserEmail } from "../store/userSlice";
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const submissionHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     let newUser = {
       email: email,
       password: password,
@@ -21,40 +24,21 @@ const Login = (props) => {
     try {
       const result = await loginUser(newUser);
       console.log(result);
-      dispatch(setUser(result.data.data.name));
-      dispatch(setCustomerId(result.data.data.stripeCustomerId));
-      dispatch(setUserEmail(result.data.data.email));
-      navigate("/plans");
+      if (result.data.errors.length > 0) {
+        setLoading(false);
+        setError(result.data.errors[0].msg);
+      } else {
+        dispatch(setUser(result.data.data.name));
+        dispatch(setCustomerId(result.data.data.stripeCustomerId));
+        dispatch(setUserEmail(result.data.data.email));
+        navigate("/plans");
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    // <div className={styles.container}>
-    //   <form>
-    //     <input
-    //       value={email}
-    //       onChange={(e) => {
-    //         setEmail(e.target.value);
-    //       }}
-    //       placeholder="Email"
-    //       type="email"
-    //     ></input>
-    //     <input
-    //       value={password}
-    //       onChange={(e) => {
-    //         setPassword(e.target.value);
-    //       }}
-    //       placeholder="password"
-    //       type="password"
-    //     ></input>
-    //     <button type="submit" onClick={submissionHandler}>
-    //       login
-    //     </button>
-    //   </form>
-    //   <button onClick={() => props.change()}>register</button>
-    // </div>
     <div className={styles.card}>
       <div className={styles.container}>
         <div className={styles.heading}>Log in to your account</div>
@@ -86,9 +70,10 @@ const Login = (props) => {
             </div>
           </div>
         </form>
+        <div className={styles.errorText}>{error}</div>
         <div className={styles.btn}>
-          <button type="submit" onClick={submissionHandler}>
-            Login
+          <button type="submit" onClick={submissionHandler} disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
           </button>
         </div>
         <div className={styles.written}>
