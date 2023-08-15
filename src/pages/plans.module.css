@@ -130,13 +130,14 @@
   padding: 1rem 0;
   border: none;
   cursor: pointer;
-  background-color: red;
+  background-color: rgba(30, 76, 145, 255);
+  border-radius: 0.7rem;
   color: white;
 }
 .active button {
   background-color: rgba(30, 76, 145, 255);
-  color: red !important;
+  color: white !important;
 }
 .active p {
-  color: red !important;
+  color: rgba(30, 76, 145, 255) !important;
 }
