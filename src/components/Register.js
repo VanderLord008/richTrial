@@ -9,11 +9,14 @@ const Register = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const submissionHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     let newUser = {
       name: name,
       email: email,
@@ -23,10 +26,17 @@ const Register = (props) => {
     try {
       const result = await createUser(newUser);
       console.log(result);
-      dispatch(setUser(name));
-      dispatch(setCustomerId(result.data.data.stripeCustomerId));
-      dispatch(setUserEmail(result.data.data.email));
-      navigate("/plans");
+      if (result.data.errors.length > 0) {
+        setLoading(false);
+        setError(result.data.errors[0].msg);
+      } else {
+        console.log("ran");
+        dispatch(setUser(name));
+        dispatch(setCustomerId(result.data.data.stripeCustomerId));
+        dispatch(setUserEmail(result.data.data.email));
+        setLoading(false);
+        navigate("/plans");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -76,9 +86,14 @@ const Register = (props) => {
               ></input>
             </div>
           </div>
+          <div className={styles.errorText}>{error}</div>
           <div className={styles.btn}>
-            <button type="submit" onClick={submissionHandler}>
-              Register
+            <button
+              type="submit"
+              onClick={submissionHandler}
+              disabled={loading}
+            >
+              {loading ? "Registering..." : "Register"}
             </button>
           </div>
         </form>
