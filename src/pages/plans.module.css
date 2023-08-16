@@ -82,6 +82,7 @@
 }
 .radioBtn {
   height: 30%;
+  width: 100%;
   /* border: 2px solid green; */
 }
 .col2 {
@@ -140,4 +141,46 @@
 }
 .active p {
   color: rgba(30, 76, 145, 255) !important;
+}
+.radioBtn {
+  height: 30%;
+  width: 100%;
+  /* border: 2px solid green; */
+  box-sizing: border-box;
+  padding: 10px;
+}
+.optionWrapper {
+  height: 40%;
+  width: 100%;
+  background-color: rgb(21, 70, 113);
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.options {
+  display: flex;
+  width: 80%;
+  height: 60%;
+  margin-left: 10%;
+  border-radius: 10px;
+  background-color: rgb(21, 70, 113);
+  cursor: pointer;
+}
+.option1 {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.option2 {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.activeOption {
+  background-color: white;
+  color: rgb(11, 65, 113);
+  border-radius: 10px;
 }
