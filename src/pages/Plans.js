@@ -10,6 +10,7 @@ const Plans = () => {
   const [plans, setPlans] = useState([]);
   const [selectedPlan, setSelectedPlan] = useState("Mobile");
   const [loading, setLoading] = useState(false);
+  const [activeOption, setActiveOption] = useState("Monthly");
   const email = useSelector((state) => state.user.userEmail);
   const fetchPlans = async (req, res) => {
     const allPlans = await getPlans();
@@ -67,13 +68,29 @@ const Plans = () => {
             <div className={styles.planPage}>
               <div className={styles.col1}>
                 <div className={styles.radioBtn}>
-                  <label className={styles.switch}>
-                    <input type="checkbox" />
-                    <span className={styles.slider}></span>
-                  </label>
+                  <div className={styles.optionWrapper}>
+                    <div className={styles.options}>
+                      <div
+                        className={`${styles.option1} ${
+                          activeOption === "Monthly" ? styles.activeOption : ""
+                        }`}
+                        onClick={() => setActiveOption("Monthly")}
+                      >
+                        Monthly
+                      </div>
+                      <div
+                        className={`${styles.option2} ${
+                          activeOption === "Yearly" ? styles.activeOption : ""
+                        }`}
+                        onClick={() => setActiveOption("Yearly")}
+                      >
+                        Yearly
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className={styles.text}>
-                  <div className={styles.contain}>Monthly Price</div>
+                  <div className={styles.contain}>{activeOption} Price</div>
                   <div className={styles.contain}>Video Quality</div>
                   <div className={styles.contain}>Resolution</div>
                   <div className={styles.contain}>
@@ -97,7 +114,7 @@ const Plans = () => {
                       selectedPlan === "Mobile" ? styles.active : ""
                     }`}
                   >
-                    <p>Rs 1000</p>
+                    <p>Rs {activeOption === "Monthly" ? "100" : "1000"}</p>
                   </div>
                   <div
                     className={`${styles.text2} ${
@@ -145,7 +162,7 @@ const Plans = () => {
                       selectedPlan === "Basic" ? styles.active : ""
                     }`}
                   >
-                    <p>Rs 2000</p>
+                    <p>Rs {activeOption === "Monthly" ? "200" : "2000"}</p>
                   </div>
                   <div
                     className={`${styles.text2} ${
@@ -207,7 +224,7 @@ const Plans = () => {
                       selectedPlan === "Standard" ? styles.active : ""
                     }`}
                   >
-                    <p>5000</p>
+                    <p>Rs {activeOption === "Monthly" ? "500" : "5000"}</p>
                   </div>
                   <div
                     className={`${styles.text2} ${
@@ -269,7 +286,7 @@ const Plans = () => {
                       selectedPlan === "Premium" ? styles.active : ""
                     }`}
                   >
-                    <p>7000</p>
+                    <p>Rs {activeOption === "Monthly" ? "700" : "7000"}</p>
                   </div>
                   <div
                     className={`${styles.text2} ${
