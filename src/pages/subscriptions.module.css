@@ -1,1 +1,12 @@
 
+.allPlans {
+  width: 100%;
+  margin: auto;
+  font-size: large;
+  text-align: center;
+  color: aliceblue;
+}
+.allPlans p {
+  text-decoration: none;
+  color: white;
+}
